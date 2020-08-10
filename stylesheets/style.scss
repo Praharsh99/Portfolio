@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel&family=Dancing+Script:wght@500&family=Raleway:wght@200;300;400;500&display=swap");
 
 // Variables
-$bebasFont: Cinzel, sans-serif;
+$cinzelFont: Cinzel, sans-serif;
 $ralewayFont: Raleway, sans-serif;
 $fontAwesomeColor: #fff;
 $headingFontColor: #fff;
@@ -54,7 +54,7 @@ body {
     @include flex(row, space-between, center);
 
     .name {
-      font-family: $bebasFont;
+      font-family: $cinzelFont;
       font-size: 3.8rem;
       letter-spacing: 2.5px;
       color: $headingFontColor;
