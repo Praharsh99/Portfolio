@@ -1,0 +1,658 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel&family=Dancing+Script:wght@500&family=Raleway:wght@200;300;400;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  background-color: #000c14;
+  overflow: hidden;
+}
+
+::-moz-selection {
+  background-color: #0cc489;
+  color: #fff;
+}
+
+::selection {
+  background-color: #0cc489;
+  color: #fff;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: url("/utils/giphy.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+}
+
+.container .header {
+  width: 100vw;
+  height: 15vh;
+  padding: 4.5rem 8rem 0rem 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .header .name {
+  font-family: Cinzel, sans-serif;
+  font-size: 3.8rem;
+  letter-spacing: 2.5px;
+  color: #fff;
+}
+
+.container .header .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 22%;
+  color: #fff;
+  font-size: 2.4rem;
+  cursor: pointer;
+}
+
+.container .header .links .link {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.container .header .links .link:hover {
+  color: #0cc489;
+}
+
+.container .header .links .fa-file-download {
+  position: relative;
+}
+
+.container .header .links .fa-file-download .resume-popup {
+  background-color: rgba(12, 196, 138, 0.7);
+  position: absolute;
+  width: 160px;
+  padding: 1rem;
+  top: 0;
+  left: -80px;
+  font-family: Raleway, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+  border-radius: 1rem;
+  visibility: hidden;
+  z-index: -1;
+  -webkit-transform: translateY(-60%);
+          transform: translateY(-60%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+}
+
+.container .header .links .fa-file-download:hover .resume-popup {
+  visibility: visible;
+  -webkit-transform: translateY(-130%);
+          transform: translateY(-130%);
+}
+
+.container .intro {
+  width: 100vw;
+  height: 45vh;
+}
+
+.container .project-container {
+  width: 100vw;
+  height: 40vh;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 2rem;
+}
+
+.container .project-container .arrow {
+  cursor: pointer;
+  -webkit-animation: rubberband 1.667s linear 0s infinite normal both;
+          animation: rubberband 1.667s linear 0s infinite normal both;
+}
+
+.container .project-container .arrow img {
+  height: 80px;
+}
+
+.container .project-container .projects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateY(130%);
+          transform: translateY(130%);
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+
+.container .project-container .projects .project-card {
+  cursor: pointer;
+  position: relative;
+  width: 260px;
+  height: 360px;
+  border-radius: 2rem;
+  background: #000c14;
+  -webkit-box-shadow: 0 0 20px rgba(12, 196, 138, 0.2);
+          box-shadow: 0 0 20px rgba(12, 196, 138, 0.2);
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.container .project-container .projects .project-card:not(:first-child) {
+  margin-left: -100px;
+}
+
+.container .project-container .projects .project-card:hover {
+  -webkit-transform: translateY(-3rem);
+          transform: translateY(-3rem);
+  -webkit-box-shadow: -5px 5px 30px 3px rgba(12, 196, 138, 0.4);
+          box-shadow: -5px 5px 30px 3px rgba(12, 196, 138, 0.4);
+}
+
+.container .project-container .projects .project-card:hover ~ .project-card {
+  -webkit-transform: translateX(10rem);
+          transform: translateX(10rem);
+}
+
+.loader-container {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.loader-container .loader {
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #0cc489;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 1.2s linear infinite;
+          animation: spin 1.2s linear infinite;
+}
+
+.fade-out {
+  opacity: 0;
+  -webkit-animation: fadeOut 0.6s linear;
+          animation: fadeOut 0.6s linear;
+}
+
+.move-up {
+  -webkit-animation: moveUp 0.6s ease;
+          animation: moveUp 0.6s ease;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes moveUp {
+  0% {
+    -webkit-transform: translateY(130%);
+            transform: translateY(130%);
+  }
+  100% {
+    -webkit-transform: translateY(-45%);
+            transform: translateY(-45%);
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    -webkit-transform: translateY(130%);
+            transform: translateY(130%);
+  }
+  100% {
+    -webkit-transform: translateY(-45%);
+            transform: translateY(-45%);
+  }
+}
+
+@-webkit-keyframes rubberband {
+  0% {
+    -webkit-transform: scaleX(1.25) scaleY(0.75);
+            transform: scaleX(1.25) scaleY(0.75);
+  }
+  2% {
+    -webkit-transform: scaleX(1.692) scaleY(0.748);
+            transform: scaleX(1.692) scaleY(0.748);
+  }
+  4% {
+    -webkit-transform: scaleX(2.162) scaleY(0.808);
+            transform: scaleX(2.162) scaleY(0.808);
+  }
+  6% {
+    -webkit-transform: scaleX(2.128) scaleY(0.912);
+            transform: scaleX(2.128) scaleY(0.912);
+  }
+  8% {
+    -webkit-transform: scaleX(1.748) scaleY(1.016);
+            transform: scaleX(1.748) scaleY(1.016);
+  }
+  10% {
+    -webkit-transform: scaleX(1.226) scaleY(1.087);
+            transform: scaleX(1.226) scaleY(1.087);
+  }
+  12% {
+    -webkit-transform: scaleX(0.778) scaleY(1.111);
+            transform: scaleX(0.778) scaleY(1.111);
+  }
+  14% {
+    -webkit-transform: scaleX(0.524) scaleY(1.093);
+            transform: scaleX(0.524) scaleY(1.093);
+  }
+  16% {
+    -webkit-transform: scaleX(0.489) scaleY(1.05);
+            transform: scaleX(0.489) scaleY(1.05);
+  }
+  18% {
+    -webkit-transform: scaleX(0.627) scaleY(1.003);
+            transform: scaleX(0.627) scaleY(1.003);
+  }
+  20% {
+    -webkit-transform: scaleX(0.845) scaleY(0.968);
+            transform: scaleX(0.845) scaleY(0.968);
+  }
+  22% {
+    -webkit-transform: scaleX(1.056) scaleY(0.952);
+            transform: scaleX(1.056) scaleY(0.952);
+  }
+  24% {
+    -webkit-transform: scaleX(1.19) scaleY(0.957);
+            transform: scaleX(1.19) scaleY(0.957);
+  }
+  26% {
+    -webkit-transform: scaleX(1.227) scaleY(0.973);
+            transform: scaleX(1.227) scaleY(0.973);
+  }
+  28% {
+    -webkit-transform: scaleX(1.182) scaleY(0.994);
+            transform: scaleX(1.182) scaleY(0.994);
+  }
+  30% {
+    -webkit-transform: scaleX(1.09) scaleY(1.011);
+            transform: scaleX(1.09) scaleY(1.011);
+  }
+  32% {
+    -webkit-transform: scaleX(0.996) scaleY(1.02);
+            transform: scaleX(0.996) scaleY(1.02);
+  }
+  34% {
+    -webkit-transform: scaleX(0.927);
+            transform: scaleX(0.927);
+  }
+  36% {
+    -webkit-transform: scaleX(0.901) scaleY(1.014);
+            transform: scaleX(0.901) scaleY(1.014);
+  }
+  38% {
+    -webkit-transform: scaleX(0.913) scaleY(1.005);
+            transform: scaleX(0.913) scaleY(1.005);
+  }
+  40% {
+    -webkit-transform: scaleX(0.95) scaleY(0.997);
+            transform: scaleX(0.95) scaleY(0.997);
+  }
+  42% {
+    -webkit-transform: scaleX(0.993) scaleY(0.992);
+            transform: scaleX(0.993) scaleY(0.992);
+  }
+  44% {
+    -webkit-transform: scaleX(1.026);
+            transform: scaleX(1.026);
+  }
+  46% {
+    -webkit-transform: scaleX(1.042);
+            transform: scaleX(1.042);
+  }
+  48% {
+    -webkit-transform: scaleX(1.04) scaleY(0.997);
+            transform: scaleX(1.04) scaleY(0.997);
+  }
+  50% {
+    -webkit-transform: scaleX(1.026) scaleY(1.001);
+            transform: scaleX(1.026) scaleY(1.001);
+  }
+  52% {
+    -webkit-transform: scaleX(1.007) scaleY(1.003);
+            transform: scaleX(1.007) scaleY(1.003);
+  }
+  54% {
+    -webkit-transform: scaleX(0.991);
+            transform: scaleX(0.991);
+  }
+  56% {
+    -webkit-transform: scaleX(0.983);
+            transform: scaleX(0.983);
+  }
+  60% {
+    -webkit-transform: scaleX(0.987) scaleY(1);
+            transform: scaleX(0.987) scaleY(1);
+  }
+  62% {
+    -webkit-transform: scaleX(0.995);
+            transform: scaleX(0.995);
+  }
+  64% {
+    -webkit-transform: scaleX(1.002) scaleY(0.998);
+            transform: scaleX(1.002) scaleY(0.998);
+  }
+  66% {
+    -webkit-transform: scaleX(1.007);
+            transform: scaleX(1.007);
+  }
+  70% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  72% {
+    -webkit-transform: scaleX(1.003);
+            transform: scaleX(1.003);
+  }
+  74% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  76% {
+    -webkit-transform: scaleX(0.997);
+            transform: scaleX(0.997);
+  }
+  84% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  88% {
+    -webkit-transform: scaleX(1.002);
+            transform: scaleX(1.002);
+  }
+  96% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  100% {
+    -webkit-transform: scaleX(1) scaleY(1);
+            transform: scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes rubberband {
+  0% {
+    -webkit-transform: scaleX(1.25) scaleY(0.75);
+            transform: scaleX(1.25) scaleY(0.75);
+  }
+  2% {
+    -webkit-transform: scaleX(1.692) scaleY(0.748);
+            transform: scaleX(1.692) scaleY(0.748);
+  }
+  4% {
+    -webkit-transform: scaleX(2.162) scaleY(0.808);
+            transform: scaleX(2.162) scaleY(0.808);
+  }
+  6% {
+    -webkit-transform: scaleX(2.128) scaleY(0.912);
+            transform: scaleX(2.128) scaleY(0.912);
+  }
+  8% {
+    -webkit-transform: scaleX(1.748) scaleY(1.016);
+            transform: scaleX(1.748) scaleY(1.016);
+  }
+  10% {
+    -webkit-transform: scaleX(1.226) scaleY(1.087);
+            transform: scaleX(1.226) scaleY(1.087);
+  }
+  12% {
+    -webkit-transform: scaleX(0.778) scaleY(1.111);
+            transform: scaleX(0.778) scaleY(1.111);
+  }
+  14% {
+    -webkit-transform: scaleX(0.524) scaleY(1.093);
+            transform: scaleX(0.524) scaleY(1.093);
+  }
+  16% {
+    -webkit-transform: scaleX(0.489) scaleY(1.05);
+            transform: scaleX(0.489) scaleY(1.05);
+  }
+  18% {
+    -webkit-transform: scaleX(0.627) scaleY(1.003);
+            transform: scaleX(0.627) scaleY(1.003);
+  }
+  20% {
+    -webkit-transform: scaleX(0.845) scaleY(0.968);
+            transform: scaleX(0.845) scaleY(0.968);
+  }
+  22% {
+    -webkit-transform: scaleX(1.056) scaleY(0.952);
+            transform: scaleX(1.056) scaleY(0.952);
+  }
+  24% {
+    -webkit-transform: scaleX(1.19) scaleY(0.957);
+            transform: scaleX(1.19) scaleY(0.957);
+  }
+  26% {
+    -webkit-transform: scaleX(1.227) scaleY(0.973);
+            transform: scaleX(1.227) scaleY(0.973);
+  }
+  28% {
+    -webkit-transform: scaleX(1.182) scaleY(0.994);
+            transform: scaleX(1.182) scaleY(0.994);
+  }
+  30% {
+    -webkit-transform: scaleX(1.09) scaleY(1.011);
+            transform: scaleX(1.09) scaleY(1.011);
+  }
+  32% {
+    -webkit-transform: scaleX(0.996) scaleY(1.02);
+            transform: scaleX(0.996) scaleY(1.02);
+  }
+  34% {
+    -webkit-transform: scaleX(0.927);
+            transform: scaleX(0.927);
+  }
+  36% {
+    -webkit-transform: scaleX(0.901) scaleY(1.014);
+            transform: scaleX(0.901) scaleY(1.014);
+  }
+  38% {
+    -webkit-transform: scaleX(0.913) scaleY(1.005);
+            transform: scaleX(0.913) scaleY(1.005);
+  }
+  40% {
+    -webkit-transform: scaleX(0.95) scaleY(0.997);
+            transform: scaleX(0.95) scaleY(0.997);
+  }
+  42% {
+    -webkit-transform: scaleX(0.993) scaleY(0.992);
+            transform: scaleX(0.993) scaleY(0.992);
+  }
+  44% {
+    -webkit-transform: scaleX(1.026);
+            transform: scaleX(1.026);
+  }
+  46% {
+    -webkit-transform: scaleX(1.042);
+            transform: scaleX(1.042);
+  }
+  48% {
+    -webkit-transform: scaleX(1.04) scaleY(0.997);
+            transform: scaleX(1.04) scaleY(0.997);
+  }
+  50% {
+    -webkit-transform: scaleX(1.026) scaleY(1.001);
+            transform: scaleX(1.026) scaleY(1.001);
+  }
+  52% {
+    -webkit-transform: scaleX(1.007) scaleY(1.003);
+            transform: scaleX(1.007) scaleY(1.003);
+  }
+  54% {
+    -webkit-transform: scaleX(0.991);
+            transform: scaleX(0.991);
+  }
+  56% {
+    -webkit-transform: scaleX(0.983);
+            transform: scaleX(0.983);
+  }
+  60% {
+    -webkit-transform: scaleX(0.987) scaleY(1);
+            transform: scaleX(0.987) scaleY(1);
+  }
+  62% {
+    -webkit-transform: scaleX(0.995);
+            transform: scaleX(0.995);
+  }
+  64% {
+    -webkit-transform: scaleX(1.002) scaleY(0.998);
+            transform: scaleX(1.002) scaleY(0.998);
+  }
+  66% {
+    -webkit-transform: scaleX(1.007);
+            transform: scaleX(1.007);
+  }
+  70% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  72% {
+    -webkit-transform: scaleX(1.003);
+            transform: scaleX(1.003);
+  }
+  74% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  76% {
+    -webkit-transform: scaleX(0.997);
+            transform: scaleX(0.997);
+  }
+  84% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  88% {
+    -webkit-transform: scaleX(1.002);
+            transform: scaleX(1.002);
+  }
+  96% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  100% {
+    -webkit-transform: scaleX(1) scaleY(1);
+            transform: scaleX(1) scaleY(1);
+  }
+}
+/*# sourceMappingURL=style.css.map */

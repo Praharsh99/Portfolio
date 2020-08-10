@@ -1,0 +1,353 @@
+// Goolge fonts
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel&family=Dancing+Script:wght@500&family=Raleway:wght@200;300;400;500&display=swap");
+
+// Variables
+$bebasFont: Cinzel, sans-serif;
+$ralewayFont: Raleway, sans-serif;
+$fontAwesomeColor: #fff;
+$headingFontColor: #fff;
+$backgroundColor: #000c14;
+$greenBackground: #0cc489;
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  position: relative;
+  background-color: $backgroundColor;
+  overflow: hidden;
+}
+
+::selection {
+  background-color: $greenBackground;
+  color: #fff;
+}
+
+// Main container
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: url("/utils/giphy.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+
+  // Header section
+  .header {
+    width: 100vw;
+    height: 15vh;
+    padding: 4.5rem 8rem 0rem 8rem;
+    @include flex(row, space-between, center);
+
+    .name {
+      font-family: $bebasFont;
+      font-size: 3.8rem;
+      letter-spacing: 2.5px;
+      color: $headingFontColor;
+    }
+
+    .links {
+      @include flex(row, space-between, center);
+      width: 22%;
+      color: #fff;
+      font-size: 2.4rem;
+      cursor: pointer;
+
+      .link {
+        user-select: none;
+        transition: all 0.1s linear;
+
+        &:hover {
+          color: $greenBackground;
+        }
+      }
+
+      .fa-file-download {
+        position: relative;
+
+        .resume-popup {
+          background-color: rgba(12, 196, 138, 0.7);
+          position: absolute;
+          width: 160px;
+          padding: 1rem;
+          top: 0;
+          left: -80px;
+          font-family: $ralewayFont;
+          font-size: 1.3rem;
+          font-weight: 300;
+          text-align: center;
+          color: #fff;
+          border-radius: 1rem;
+          visibility: hidden;
+          z-index: -1;
+          transform: translateY(-60%);
+          transition: transform 0.3s ease-out;
+        }
+
+        &:hover .resume-popup {
+          visibility: visible;
+          transform: translateY(-130%);
+        }
+      }
+    }
+  }
+
+  .intro {
+    width: 100vw;
+    height: 45vh;
+  }
+
+  // Projects section Styles
+  .project-container {
+    width: 100vw;
+    height: 40vh;
+    position: relative;
+    @include flex(row, center, flex-end);
+    padding: 2rem;
+
+    // Arrow indicator
+    .arrow {
+      cursor: pointer;
+      animation: rubberband 1.667s linear 0s infinite normal both;
+
+      img {
+        height: 80px;
+      }
+    }
+
+    // Projects cards container
+    .projects {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @include flex(row, center, center);
+      transform: translateY(130%);
+      transition: transform 0.4s ease;
+
+      .project-card {
+        cursor: pointer;
+        position: relative;
+        width: 260px;
+        height: 360px;
+        border-radius: 2rem;
+        background: $backgroundColor;
+        box-shadow: 0 0 20px rgba(12, 196, 138, 0.2);
+        transition: all 0.3s ease-out;
+
+        &:not(:first-child) {
+          margin-left: -100px;
+        }
+
+        &:hover {
+          transform: translateY(-3rem);
+          box-shadow: -5px 5px 30px 3px rgba(12, 196, 138, 0.4);
+        }
+
+        &:hover ~ .project-card {
+          transform: translateX(10rem);
+        }
+      }
+    }
+  }
+}
+
+// Loader Styles
+.loader-container {
+  position: absolute;
+  @include flex(row, center, center);
+  background: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+
+  .loader {
+    border: 2px solid #f3f3f3;
+    border-top: 3px solid $greenBackground;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1.2s linear infinite;
+  }
+}
+
+// Utility classes
+.fade-out {
+  opacity: 0;
+  animation: fadeOut 0.6s linear;
+}
+
+.move-up {
+  animation: moveUp 0.6s ease;
+}
+
+// Animations
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(130%);
+  }
+
+  100% {
+    transform: translateY(-45%);
+  }
+}
+
+@keyframes rubberband {
+  0% {
+    transform: scaleX(1.25) scaleY(0.75);
+  }
+  2% {
+    transform: scaleX(1.692) scaleY(0.748);
+  }
+  4% {
+    transform: scaleX(2.162) scaleY(0.808);
+  }
+  6% {
+    transform: scaleX(2.128) scaleY(0.912);
+  }
+  8% {
+    transform: scaleX(1.748) scaleY(1.016);
+  }
+  10% {
+    transform: scaleX(1.226) scaleY(1.087);
+  }
+  12% {
+    transform: scaleX(0.778) scaleY(1.111);
+  }
+  14% {
+    transform: scaleX(0.524) scaleY(1.093);
+  }
+  16% {
+    transform: scaleX(0.489) scaleY(1.05);
+  }
+  18% {
+    transform: scaleX(0.627) scaleY(1.003);
+  }
+  20% {
+    transform: scaleX(0.845) scaleY(0.968);
+  }
+  22% {
+    transform: scaleX(1.056) scaleY(0.952);
+  }
+  24% {
+    transform: scaleX(1.19) scaleY(0.957);
+  }
+  26% {
+    transform: scaleX(1.227) scaleY(0.973);
+  }
+  28% {
+    transform: scaleX(1.182) scaleY(0.994);
+  }
+  30% {
+    transform: scaleX(1.09) scaleY(1.011);
+  }
+  32% {
+    transform: scaleX(0.996) scaleY(1.02);
+  }
+  34% {
+    transform: scaleX(0.927);
+  }
+  36% {
+    transform: scaleX(0.901) scaleY(1.014);
+  }
+  38% {
+    transform: scaleX(0.913) scaleY(1.005);
+  }
+  40% {
+    transform: scaleX(0.95) scaleY(0.997);
+  }
+  42% {
+    transform: scaleX(0.993) scaleY(0.992);
+  }
+  44% {
+    transform: scaleX(1.026);
+  }
+  46% {
+    transform: scaleX(1.042);
+  }
+  48% {
+    transform: scaleX(1.04) scaleY(0.997);
+  }
+  50% {
+    transform: scaleX(1.026) scaleY(1.001);
+  }
+  52% {
+    transform: scaleX(1.007) scaleY(1.003);
+  }
+  54% {
+    transform: scaleX(0.991);
+  }
+  56% {
+    transform: scaleX(0.983);
+  }
+  60% {
+    transform: scaleX(0.987) scaleY(1);
+  }
+  62% {
+    transform: scaleX(0.995);
+  }
+  64% {
+    transform: scaleX(1.002) scaleY(0.998);
+  }
+  66% {
+    transform: scaleX(1.007);
+  }
+  70% {
+    transform: scaleY(1);
+  }
+  72% {
+    transform: scaleX(1.003);
+  }
+  74% {
+    transform: scaleX(1);
+  }
+  76% {
+    transform: scaleX(0.997);
+  }
+  84% {
+    transform: scaleX(1);
+  }
+  88% {
+    transform: scaleX(1.002);
+  }
+  96% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
