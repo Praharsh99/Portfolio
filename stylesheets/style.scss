@@ -32,18 +32,15 @@ body {
   overflow: hidden;
 }
 
-::selection {
-  background-color: $greenBackground;
-  color: #fff;
-}
-
 // Main container
 .container {
   width: 100vw;
   height: 100vh;
-  background: url("/utils/giphy.gif");
+  @include flex(column, space-between, center);
+  background: url("http://bit.ly/2gPLxZ4");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
   overflow: hidden;
 
   // Header section
@@ -55,7 +52,14 @@ body {
 
     .name {
       font-family: $cinzelFont;
-      font-size: 3.8rem;
+      font-size: 4rem;
+      background-image: linear-gradient(to right, #0c1e31, #38506e, #942348);
+      background-size: 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent;
       letter-spacing: 2.5px;
       color: $headingFontColor;
     }
@@ -70,17 +74,29 @@ body {
       .link {
         user-select: none;
         transition: all 0.1s linear;
+      }
 
-        &:hover {
-          color: $greenBackground;
-        }
+      .fa-google:hover {
+        color: #f4b400;
+      }
+
+      .fa-github:hover {
+        color: #000;
+      }
+
+      .fa-linkedin:hover {
+        color: #2867b2;
       }
 
       .fa-file-download {
         position: relative;
 
+        &:hover {
+          color: #ee4a3b;
+        }
+
         .resume-popup {
-          background-color: rgba(12, 196, 138, 0.7);
+          background-color: rgba(0, 0, 0, 0.3);
           position: absolute;
           width: 160px;
           padding: 1rem;
@@ -93,7 +109,7 @@ body {
           color: #fff;
           border-radius: 1rem;
           visibility: hidden;
-          z-index: -1;
+          z-index: 10;
           transform: translateY(-60%);
           transition: transform 0.3s ease-out;
         }
@@ -106,18 +122,14 @@ body {
     }
   }
 
-  .intro {
+  // arrow section Styles
+  .arrow-container {
     width: 100vw;
-    height: 45vh;
-  }
-
-  // Projects section Styles
-  .project-container {
-    width: 100vw;
-    height: 40vh;
-    position: relative;
+    height: 20vh;
     @include flex(row, center, flex-end);
     padding: 2rem;
+    transform-origin: center;
+    transition: transform 0.3s ease-out;
 
     // Arrow indicator
     .arrow {
@@ -128,101 +140,72 @@ body {
         height: 80px;
       }
     }
+  }
 
-    // Projects cards container
-    .projects {
+  .projects {
+    cursor: pointer;
+    position: fixed;
+    width: 280px;
+    height: 400px;
+    top: 200%;
+    left: 50%;
+    background: inherit;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 100px auto;
+    pointer-events: none;
+    box-shadow: -10px 0 20px 2px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-out 0.05s;
+
+    &::after {
+      content: "";
+      width: 120%;
+      height: 120%;
+      background: inherit;
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      @include flex(row, center, center);
-      transform: translateY(130%);
-      transition: transform 0.4s ease;
+      box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.03);
+      filter: blur(10px);
+    }
 
-      .project-card {
-        cursor: pointer;
-        position: relative;
-        width: 260px;
-        height: 360px;
-        border-radius: 2rem;
-        background: $backgroundColor;
-        box-shadow: 0 0 20px rgba(12, 196, 138, 0.2);
-        transition: all 0.3s ease-out;
+    &:not(:first-child) {
+      margin-left: -150px;
+    }
 
-        &:not(:first-child) {
-          margin-left: -100px;
-        }
+    &:hover {
+      transform: translateY(-3rem);
+      background-position: 0px 80px;
+      box-shadow: -10px 10px 30px 3px rgba(0, 0, 0, 0.4);
+    }
 
-        &:hover {
-          transform: translateY(-3rem);
-          box-shadow: -5px 5px 30px 3px rgba(12, 196, 138, 0.4);
-        }
-
-        &:hover ~ .project-card {
-          transform: translateX(10rem);
-        }
-      }
+    &:hover ~ .projects {
+      transform: translateX(9vw);
     }
   }
 }
 
-// Loader Styles
-.loader-container {
-  position: absolute;
-  @include flex(row, center, center);
-  background: #fff;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1000;
-
-  .loader {
-    border: 2px solid #f3f3f3;
-    border-top: 3px solid $greenBackground;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    animation: spin 1.2s linear infinite;
-  }
-}
-
 // Utility classes
-.fade-out {
-  opacity: 0;
-  animation: fadeOut 0.6s linear;
-}
-
 .move-up {
   animation: moveUp 0.6s ease;
 }
 
+.has-pointer-events {
+  pointer-events: auto !important;
+}
+
+.rotate-smooth {
+  align-items: flex-start !important;
+  transform: rotate(180deg);
+}
+
 // Animations
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 @keyframes moveUp {
   0% {
-    transform: translateY(130%);
+    top: 200%;
   }
 
   100% {
-    transform: translateY(-45%);
+    top: 105px;
   }
 }
 

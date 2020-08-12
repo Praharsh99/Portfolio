@@ -1,36 +1,33 @@
 const arrowBtn = document.getElementById("arrow");
-const projects = document.getElementById("projects");
+const projects = document.querySelectorAll(".projects");
+
 const resumeDownloadBtn = document.getElementById("resume-download");
 
-// Event Listeners
-arrowBtn.onclick = () => {
-  projects.getAttribute("style")
-    ? projects.removeAttribute("style")
-    : (projects.style.transform = "translateY(-45%)");
-
-  projects.classList.toggle("move-up");
-};
-
-resumeDownloadBtn.onclick = () => {
-  const a = document.createElement("a");
-  a.href = "/utils/Resume.pdf";
-  a.download = "Praharsh's Resume";
-};
-
-// Utility function
+// Utility Functions
 const sleep = (ms) => {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
 };
 
-// removing the loader after 3 seconds
-window.onload = () => {
-  const loaderContainer = document.getElementById("loader-container");
+// Event Listeners
+arrowBtn.onclick = () => {
+  projects.forEach(async (project, index) => {
+    project.getAttribute("style")
+      ? project.removeAttribute("style")
+      : ((project.style.top = "100px"),
+        (project.style.left = `${index * 10 + 25}%`));
 
-  setTimeout(async () => {
-    loaderContainer.classList.add("fade-out");
+    project.classList.toggle("move-up");
     await sleep(1000);
-    loaderContainer.remove();
-  }, 3000);
+    project.classList.toggle("has-pointer-events");
+  });
+
+  arrowBtn.parentElement.classList.toggle("rotate-smooth");
+};
+
+resumeDownloadBtn.onclick = () => {
+  const a = document.createElement("a");
+  a.href = "./utils/Resume.pdf";
+  a.download = "Praharsh's Resume";
 };
