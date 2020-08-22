@@ -15,8 +15,8 @@ arrowBtn.onclick = () => {
   projects.forEach(async (project, index) => {
     project.getAttribute("style")
       ? project.removeAttribute("style")
-      : ((project.style.top = "100px"),
-        (project.style.left = `${index * 10 + 25}%`));
+      : ((project.style.top = "120px"),
+        (project.style.left = `${index * 10 + 10.6}%`));
 
     project.classList.toggle("move-up");
     await sleep(1000);
